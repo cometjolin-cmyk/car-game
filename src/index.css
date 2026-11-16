@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Chakra Petch', 'Noto Sans TC', sans-serif;
+    --font-body: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0B192C;
+    font-family: var(--font-body);
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 粒子透明感玻璃擬態樣板（高通透度 + 微粒點陣紋理 + 發光粒子點狀邊框，無 backdrop-filter 以維持 WebGL 60FPS） */
+.cyber-glass {
+  position: relative;
+  background-color: rgba(8, 20, 38, 0.36);
+  background-image:
+    radial-gradient(rgba(0, 245, 212, 0.16) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(145deg, rgba(16, 42, 74, 0.34) 0%, rgba(7, 17, 34, 0.48) 100%);
+  background-size: 12px 12px, 18px 18px, 100% 100%;
+  background-position: 0 0, 6px 6px, 0 0;
+  border: 1px solid rgba(0, 245, 212, 0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 0 22px rgba(0, 245, 212, 0.08),
+    0 8px 28px rgba(4, 10, 22, 0.42);
+  text-shadow: 0 1px 8px rgba(4, 10, 22, 0.85);
+}
+
+/* 外圍細碎粒子點狀邊框裝飾 */
+.cyber-glass::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 1px dotted rgba(0, 245, 212, 0.42);
+  pointer-events: none;
+}
+
+.cyber-glass-modal {
+  position: relative;
+  background-color: rgba(8, 20, 38, 0.56);
+  background-image:
+    radial-gradient(rgba(0, 245, 212, 0.14) 1px, transparent 1px),
+    radial-gradient(rgba(123, 44, 191, 0.14) 1px, transparent 1px),
+    linear-gradient(145deg, rgba(16, 42, 74, 0.46) 0%, rgba(6, 15, 30, 0.64) 100%);
+  background-size: 14px 14px, 22px 22px, 100% 100%;
+  background-position: 0 0, 7px 7px, 0 0;
+  border: 1px solid rgba(0, 245, 212, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    inset 0 0 36px rgba(0, 245, 212, 0.09),
+    0 16px 48px rgba(3, 8, 18, 0.55);
+  text-shadow: 0 1px 10px rgba(4, 10, 22, 0.9);
+}
+
+.cyber-glass-modal::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: inherit;
+  border: 1px dotted rgba(0, 245, 212, 0.48);
+  pointer-events: none;
+}
+
+.cyber-glass-danger {
+  position: relative;
+  background-color: rgba(38, 10, 28, 0.48);
+  background-image:
+    radial-gradient(rgba(255, 0, 85, 0.2) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(145deg, rgba(58, 14, 42, 0.44) 0%, rgba(22, 6, 20, 0.58) 100%);
+  background-size: 12px 12px, 18px 18px, 100% 100%;
+  background-position: 0 0, 6px 6px, 0 0;
+  border: 1px solid rgba(255, 0, 85, 0.58);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 160, 190, 0.24),
+    inset 0 0 28px rgba(255, 0, 85, 0.14),
+    0 12px 36px rgba(255, 0, 85, 0.22);
+  text-shadow: 0 1px 8px rgba(10, 2, 8, 0.9);
+}
+
+.cyber-glass-danger::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 1px dotted rgba(255, 0, 85, 0.55);
+  pointer-events: none;
+}
+
+.cyber-glass-purple {
+  position: relative;
+  background-color: rgba(24, 14, 48, 0.38);
+  background-image:
+    radial-gradient(rgba(168, 85, 247, 0.18) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(145deg, rgba(38, 22, 74, 0.36) 0%, rgba(12, 22, 42, 0.5) 100%);
+  background-size: 12px 12px, 18px 18px, 100% 100%;
+  background-position: 0 0, 6px 6px, 0 0;
+  border: 1px solid rgba(168, 85, 247, 0.46);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 0 22px rgba(123, 44, 191, 0.12),
+    0 8px 28px rgba(3, 8, 18, 0.42);
+  text-shadow: 0 1px 8px rgba(4, 10, 22, 0.85);
+}
+
+.cyber-glass-purple::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 1px dotted rgba(168, 85, 247, 0.48);
+  pointer-events: none;
+}
+
+/* 內層子卡片粒子透明樣板 */
+.cyber-subcard {
+  background-color: rgba(8, 20, 38, 0.34);
+  background-image: radial-gradient(rgba(0, 245, 212, 0.12) 1px, transparent 1px);
+  background-size: 10px 10px;
+  border: 1px dashed rgba(0, 245, 212, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 連擊粒子進度條紋理 */
+.combo-particle-fill {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.55) 1px, transparent 1px),
+    linear-gradient(90deg, #00F5D4 0%, #7B2CBF 55%, #ffb703 100%);
+  background-size: 8px 8px, 100% 100%;
+}
+
+/* 極限擦身全息浮動字樣動畫（僅使用 transform 與 opacity） */
+@keyframes nearMissFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.88);
+  }
+  18% {
+    opacity: 1;
+    transform: translateY(0px) scale(1.04);
+  }
+  78% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.96);
+  }
+}
+
+.animate-near-miss {
+  animation: nearMissFloat 1.05s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
